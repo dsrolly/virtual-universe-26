@@ -5,3 +5,5 @@ holds sample notes from the GitHub Universe '26 keynote.
 
 It cannot export the notes yet. That makes it a good first issue for the
 `issue-to-pr` skill in [Section 2](../02-github-copilot-latest-features/).
+
+Search highlights by title or summary with `npm run search -- <word>`.
