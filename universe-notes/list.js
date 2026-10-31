@@ -1,0 +1,18 @@
+import { readFileSync } from "node:fs";
+
+const { highlights } = JSON.parse(
+  readFileSync(new URL("./notes/keynote-highlights.json", import.meta.url), "utf8"),
+);
+const topics = new Map();
+
+for (const { topic, title } of highlights) {
+  const titles = topics.get(topic) ?? [];
+  titles.push(title);
+  topics.set(topic, titles);
+}
+
+console.log(
+  [...topics]
+    .map(([topic, titles]) => `${topic}\n${titles.map((title) => `  - ${title}`).join("\n")}`)
+    .join("\n\n"),
+);
